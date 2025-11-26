@@ -1,0 +1,56 @@
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
+
+/* Анимация загрузки страницы */
+@keyframes pageLoad {
+    to { 
+        opacity: 1; 
+    }
+}
+
+/* Анимация появления сбоку (для sidebar) */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Анимация появления снизу (для контента) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Простое появление */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+/* Анимация появления справа (для уведомлений) */
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

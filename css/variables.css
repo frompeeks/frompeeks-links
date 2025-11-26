@@ -1,0 +1,91 @@
+/* ============================================
+   ПЕРЕМЕННЫЕ И БАЗОВЫЕ НАСТРОЙКИ
+   ============================================ */
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS переменные для цветов и размеров */
+:root {
+    /* Цвета фона */
+    --bg-gradient-start: #1a1a2e;
+    --bg-gradient-end: #16213e;
+    --sidebar-bg: rgba(42, 42, 62, 0.5);
+    --card-bg: rgba(42, 42, 62, 0.5);
+    --card-bg-hover: rgba(58, 58, 78, 0.6);
+    
+    /* Цвета текста */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: #a0a0b0;
+    --text-dark: rgba(255, 255, 255, 0.6);
+    
+    /* Акцентные цвета */
+    --accent-gradient-start: #667eea;
+    --accent-gradient-end: #764ba2;
+    
+    /* Границы */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-accent: rgba(102, 126, 234, 0.3);
+    
+    /* Тени */
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4);
+    
+    /* Размеры */
+    --sidebar-width: 320px;
+    --border-radius: 15px;
+    --border-radius-sm: 12px;
+    
+    /* Отступы */
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    
+    /* Эффекты */
+    --blur-amount: 10px;
+    
+    /* Переходы */
+    --transition-speed: 0.3s;
+}
+
+/* Базовые стили body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    min-height: 100vh;
+    color: var(--text-primary);
+    opacity: 0;
+    animation: pageLoad 0.6s ease-out forwards;
+}
+
+/* Цвета социальных сетей */
+.steam { 
+    background: linear-gradient(135deg, #1b2838, #2a475e); 
+}
+
+.discord { 
+    background: linear-gradient(135deg, #5865F2, #7289da); 
+}
+
+.tiktok { 
+    background: linear-gradient(135deg, #000000, #333333); 
+}
+
+.telegram { 
+    background: linear-gradient(135deg, #0088cc, #229ED9); 
+}
+
+.spotify { 
+    background: linear-gradient(135deg, #1DB954, #1ed760); 
+}
+
+.standoff2 { 
+    background: linear-gradient(135deg, #000000, #000000); 
+}

@@ -1,0 +1,159 @@
+/* ============================================
+   КОМПОНЕНТЫ
+   ============================================ */
+
+/* ===== КАРТОЧКИ ССЫЛОК ===== */
+.link-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-speed);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    background: var(--card-bg-hover);
+    border-color: var(--border-accent);
+}
+
+.link-card.non-clickable {
+    cursor: pointer;
+}
+
+/* Иконка ссылки */
+.link-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.link-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--text-primary);
+}
+
+.link-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Контент ссылки */
+.link-content {
+    flex: 1;
+}
+
+.link-title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.link-subtitle {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* ===== КАРТОЧКИ ГЛАВНОЙ СТРАНИЦЫ ===== */
+.home-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-speed);
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border-accent);
+}
+
+.home-card-icon {
+    font-size: 48px;
+    margin-bottom: var(--spacing-md);
+}
+
+.home-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.home-card p {
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* ===== ПУСТОЕ СОСТОЯНИЕ ===== */
+.empty-state {
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    border-radius: var(--border-radius);
+    padding: 80px var(--spacing-xl);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.empty-state-icon {
+    font-size: 64px;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.5;
+}
+
+.empty-state h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    font-size: 24px;
+}
+
+.empty-state p {
+    color: var(--text-muted);
+}
+
+/* ===== УВЕДОМЛЕНИЕ О КОПИРОВАНИИ ===== */
+.copy-notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--accent-gradient-start) 0%, var(--accent-gradient-end) 100%);
+    color: var(--text-primary);
+    padding: var(--spacing-sm) 25px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: slideInRight 0.3s ease-out;
+    display: none;
+}
+
+.copy-notification.show {
+    display: block;
+}
+
+/* Адаптивность уведомления */
+@media (max-width: 1024px) {
+    .copy-notification {
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        left: var(--spacing-md);
+        text-align: center;
+    }
+}
