@@ -12,57 +12,82 @@
 /* CSS переменные для цветов и размеров */
 :root {
     /* Цвета фона */
-    --bg-gradient-start: #1a1a2e;
-    --bg-gradient-end: #16213e;
-    --sidebar-bg: rgba(42, 42, 62, 0.5);
-    --card-bg: rgba(42, 42, 62, 0.5);
-    --card-bg-hover: rgba(58, 58, 78, 0.6);
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #252525;
+    --sidebar-bg: #1a1a1a;
+    --card-bg: #1e1e1e;
+    --card-bg-hover: #252525;
     
     /* Цвета текста */
     --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --text-muted: #a0a0b0;
-    --text-dark: rgba(255, 255, 255, 0.6);
+    --text-secondary: #b0b0b0;
+    --text-muted: #808080;
     
     /* Акцентные цвета */
-    --accent-gradient-start: #667eea;
-    --accent-gradient-end: #764ba2;
+    --accent-primary: #6366f1;
+    --accent-hover: #7c3aed;
+    --accent-light: rgba(99, 102, 241, 0.1);
     
     /* Границы */
-    --border-light: rgba(255, 255, 255, 0.1);
-    --border-accent: rgba(102, 126, 234, 0.3);
+    --border-primary: #2a2a2a;
+    --border-secondary: #353535;
     
     /* Тени */
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
     
     /* Размеры */
-    --sidebar-width: 320px;
-    --border-radius: 15px;
-    --border-radius-sm: 12px;
+    --sidebar-width: 280px;
+    --header-height: 70px;
+    --footer-height: 120px;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --border-radius-lg: 16px;
     
     /* Отступы */
-    --spacing-xs: 10px;
-    --spacing-sm: 15px;
-    --spacing-md: 20px;
-    --spacing-lg: 30px;
-    --spacing-xl: 40px;
-    
-    /* Эффекты */
-    --blur-amount: 10px;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
     
     /* Переходы */
-    --transition-speed: 0.3s;
+    --transition-fast: 0.15s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
 }
 
 /* Базовые стили body */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
     min-height: 100vh;
     color: var(--text-primary);
-    opacity: 0;
-    animation: pageLoad 0.6s ease-out forwards;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
 }
 
 /* Цвета социальных сетей */
@@ -75,7 +100,7 @@ body {
 }
 
 .tiktok { 
-    background: linear-gradient(135deg, #000000, #333333); 
+    background: linear-gradient(135deg, #000000, #2e2e2e); 
 }
 
 .telegram { 
@@ -87,5 +112,5 @@ body {
 }
 
 .standoff2 { 
-    background: linear-gradient(135deg, #000000, #000000); 
+    background: linear-gradient(135deg, #ff6b00, #ff8c00); 
 }
