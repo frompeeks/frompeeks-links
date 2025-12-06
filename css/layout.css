@@ -23,6 +23,8 @@
     padding: 0 var(--spacing-lg);
     align-items: center;
     justify-content: space-between;
+    backdrop-filter: blur(20px);
+    background: rgba(20, 20, 20, 0.8);
 }
 
 .mobile-header-content {
@@ -33,14 +35,19 @@
 }
 
 .mobile-logo {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
-    color: var(--text-primary);
+    background: var(--accent-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
 }
 
 .menu-toggle {
-    background: none;
-    border: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border-primary);
     color: var(--text-primary);
     font-size: 24px;
     cursor: pointer;
@@ -49,11 +56,14 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius-sm);
-    transition: background var(--transition-fast);
+    transition: all var(--transition-fast);
+    width: 44px;
+    height: 44px;
 }
 
 .menu-toggle:hover {
     background: var(--card-bg-hover);
+    border-color: var(--accent-primary);
 }
 
 /* Оверлей для мобильного меню */
@@ -64,9 +74,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 98;
     animation: fadeInOverlay var(--transition-normal);
+    backdrop-filter: blur(4px);
 }
 
 .mobile-overlay.active {
@@ -77,7 +88,7 @@
 .sidebar {
     width: var(--sidebar-width);
     background: var(--sidebar-bg);
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-2xl) var(--spacing-xl);
     position: fixed;
     left: 0;
     top: 0;
@@ -90,25 +101,34 @@
     z-index: 99;
 }
 
-/* Профиль в sidebar */
+/* Профиль в sidebar - карточка */
 .profile {
     margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--border-primary);
+    padding: var(--spacing-lg);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-card);
 }
 
 .profile h1 {
     color: var(--text-primary);
-    font-size: 24px;
-    margin-bottom: var(--spacing-sm);
+    font-size: 28px;
+    margin-bottom: var(--spacing-md);
     font-weight: 700;
     letter-spacing: -0.5px;
+    background: var(--accent-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
 }
 
 .profile-bio {
     color: var(--text-secondary);
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* ===== НАВИГАЦИЯ ===== */
@@ -120,7 +140,7 @@ nav {
     width: 100%;
     background: transparent;
     border: none;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
     font-size: 15px;
     cursor: pointer;
     color: var(--text-secondary);
@@ -132,23 +152,48 @@ nav {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: var(--accent-primary);
+    transition: height var(--transition-fast);
+    border-radius: 0 2px 2px 0;
 }
 
 .nav-btn:hover {
     background: var(--card-bg-hover);
     color: var(--text-primary);
+    padding-left: var(--spacing-lg);
+}
+
+.nav-btn:hover::before {
+    height: 60%;
 }
 
 .nav-btn.active {
     background: var(--accent-light);
     color: var(--accent-primary);
     font-weight: 600;
+    padding-left: var(--spacing-lg);
+}
+
+.nav-btn.active::before {
+    height: 80%;
 }
 
 .nav-divider {
     height: 1px;
     background: var(--border-primary);
-    margin: var(--spacing-md) 0;
+    margin: var(--spacing-lg) 0;
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
@@ -160,7 +205,7 @@ nav {
 .main-content {
     margin-left: var(--sidebar-width);
     flex: 1;
-    padding: var(--spacing-2xl) var(--spacing-2xl) 0;
+    padding: var(--spacing-3xl) var(--spacing-2xl) 0;
     max-width: 1400px;
     animation: fadeInUp 0.5s ease-out;
 }
@@ -168,7 +213,7 @@ nav {
 /* Секции контента */
 .content-section {
     display: none;
-    animation: fadeIn var(--transition-normal);
+    animation: scaleIn var(--transition-normal);
 }
 
 .content-section.active {
@@ -177,51 +222,60 @@ nav {
 
 /* Заголовки секций */
 .section-header {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-card);
 }
 
 .section-header h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: var(--spacing-sm);
     color: var(--text-primary);
     font-weight: 700;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
 }
 
 .section-header p {
     color: var(--text-secondary);
     font-size: 16px;
+    line-height: 1.6;
 }
 
 .section-title {
     color: var(--text-secondary);
     font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: var(--spacing-md);
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-lg);
     font-weight: 600;
+    padding-left: var(--spacing-sm);
 }
 
 /* ===== СЕТКИ ===== */
 .links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
 }
 
 .home-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
 }
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--bg-secondary);
+    background: var(--card-bg);
     border-top: 1px solid var(--border-primary);
     padding: var(--spacing-xl) var(--spacing-2xl);
-    margin-top: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
     margin-left: var(--sidebar-width);
+    box-shadow: var(--shadow-card);
 }
 
 .footer-content {
@@ -230,10 +284,19 @@ nav {
 }
 
 .footer-top {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-md);
+}
+
+.footer-top .gradient-text {
+    background: var(--accent-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
 }
 
 .footer-divider {
@@ -250,11 +313,15 @@ nav {
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 1024px) {
     .main-content {
-        padding: var(--spacing-xl) var(--spacing-lg) 0;
+        padding: var(--spacing-2xl) var(--spacing-xl) 0;
     }
 
     .footer {
-        padding: var(--spacing-xl) var(--spacing-lg);
+        padding: var(--spacing-xl) var(--spacing-xl);
+    }
+
+    .section-header {
+        padding: var(--spacing-lg);
     }
 }
 
@@ -279,33 +346,43 @@ nav {
     /* Контент на всю ширину */
     .main-content {
         margin-left: 0;
-        padding: calc(var(--header-height) + var(--spacing-lg)) var(--spacing-md) 0;
+        padding: calc(var(--header-height) + var(--spacing-xl)) var(--spacing-md) 0;
     }
 
     .footer {
         margin-left: 0;
-        padding: var(--spacing-lg) var(--spacing-md);
+        padding: var(--spacing-xl) var(--spacing-md);
     }
 
     .section-header h2 {
-        font-size: 28px;
+        font-size: 32px;
+    }
+
+    .section-header {
+        padding: var(--spacing-md);
     }
 
     .links-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 
     .home-cards {
         grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
 }
 
 @media (max-width: 480px) {
     .section-header h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .main-content {
         padding: calc(var(--header-height) + var(--spacing-md)) var(--spacing-sm) 0;
+    }
+
+    .section-header {
+        padding: var(--spacing-md) var(--spacing-sm);
     }
 }

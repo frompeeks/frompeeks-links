@@ -12,39 +12,42 @@
 /* CSS переменные для цветов и размеров */
 :root {
     /* Цвета фона */
-    --bg-primary: #0f0f0f;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #252525;
-    --sidebar-bg: #1a1a1a;
-    --card-bg: #1e1e1e;
-    --card-bg-hover: #252525;
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-tertiary: #1a1a1a;
+    --sidebar-bg: #0f0f0f;
+    --card-bg: #1c1c1c;
+    --card-bg-hover: #242424;
     
     /* Цвета текста */
     --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --text-muted: #808080;
+    --text-secondary: #a0a0a0;
+    --text-muted: #6b6b6b;
     
     /* Акцентные цвета */
-    --accent-primary: #6366f1;
-    --accent-hover: #7c3aed;
-    --accent-light: rgba(99, 102, 241, 0.1);
+    --accent-primary: #8b5cf6;
+    --accent-hover: #a78bfa;
+    --accent-light: rgba(139, 92, 246, 0.12);
+    --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
     
     /* Границы */
-    --border-primary: #2a2a2a;
-    --border-secondary: #353535;
+    --border-primary: #282828;
+    --border-secondary: #333333;
     
     /* Тени */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+    --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
     
     /* Размеры */
-    --sidebar-width: 280px;
+    --sidebar-width: 320px;
     --header-height: 70px;
     --footer-height: 120px;
-    --border-radius: 12px;
-    --border-radius-sm: 8px;
-    --border-radius-lg: 16px;
+    --border-radius: 16px;
+    --border-radius-sm: 12px;
+    --border-radius-lg: 20px;
+    --border-radius-xl: 24px;
     
     /* Отступы */
     --spacing-xs: 8px;
@@ -53,9 +56,10 @@
     --spacing-lg: 24px;
     --spacing-xl: 32px;
     --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
     
     /* Переходы */
-    --transition-fast: 0.15s;
+    --transition-fast: 0.2s;
     --transition-normal: 0.3s;
     --transition-slow: 0.5s;
 }
@@ -73,8 +77,8 @@ body {
 
 /* Скроллбар */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -83,7 +87,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: var(--border-secondary);
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
