@@ -120,6 +120,22 @@
     display: inline-block;
 }
 
+.home-card-icon-svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--spacing-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-card-icon-svg svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
 .home-card h3 {
     font-size: 24px;
     margin-bottom: var(--spacing-md);
@@ -188,6 +204,11 @@
 
 .copy-notification.show {
     display: flex;
+    animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.copy-notification.hide {
+    animation: slideOutRight 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
 }
 
 /* Адаптивность уведомления */

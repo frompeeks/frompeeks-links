@@ -138,8 +138,8 @@ nav {
 
 .nav-btn {
     width: 100%;
-    background: transparent;
-    border: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border-primary);
     padding: var(--spacing-md) var(--spacing-lg);
     font-size: 15px;
     cursor: pointer;
@@ -147,47 +147,28 @@ nav {
     font-weight: 500;
     border-radius: var(--border-radius-sm);
     transition: all var(--transition-fast);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
     text-align: left;
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
     position: relative;
     overflow: hidden;
-}
-
-.nav-btn::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 0;
-    background: var(--accent-primary);
-    transition: height var(--transition-fast);
-    border-radius: 0 2px 2px 0;
+    box-shadow: var(--shadow-sm);
 }
 
 .nav-btn:hover {
     background: var(--card-bg-hover);
     color: var(--text-primary);
-    padding-left: var(--spacing-lg);
-}
-
-.nav-btn:hover::before {
-    height: 60%;
+    border-color: var(--accent-primary);
+    transform: translateX(4px);
 }
 
 .nav-btn.active {
     background: var(--accent-light);
     color: var(--accent-primary);
     font-weight: 600;
-    padding-left: var(--spacing-lg);
-}
-
-.nav-btn.active::before {
-    height: 80%;
+    border-color: var(--accent-primary);
 }
 
 .nav-divider {
@@ -223,11 +204,6 @@ nav {
 /* Заголовки секций */
 .section-header {
     margin-bottom: var(--spacing-2xl);
-    padding: var(--spacing-xl);
-    background: var(--card-bg);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid var(--border-primary);
-    box-shadow: var(--shadow-card);
 }
 
 .section-header h2 {
@@ -249,9 +225,19 @@ nav {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-lg);
     font-weight: 600;
-    padding-left: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-sm);
+    display: inline-block;
+}
+
+.section-title:first-of-type {
+    margin-top: 0;
 }
 
 /* ===== СЕТКИ ===== */
@@ -259,7 +245,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: 0;
 }
 
 .home-cards {

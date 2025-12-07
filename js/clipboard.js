@@ -79,15 +79,24 @@ function showNotification(text, platform) {
         return;
     }
     
+    // Убираем класс hide если он есть
+    notification.classList.remove('hide');
+    
     // Устанавливаем текст уведомления
     notification.textContent = `✓ ${platform} скопирован: ${text}`;
     
     // Показываем уведомление
     notification.classList.add('show');
     
-    // Скрываем уведомление через 2.5 секунды
+    // Скрываем уведомление через 2.5 секунды с анимацией
     setTimeout(() => {
         notification.classList.remove('show');
+        notification.classList.add('hide');
+        
+        // Удаляем класс hide после завершения анимации
+        setTimeout(() => {
+            notification.classList.remove('hide');
+        }, 400);
     }, 2500);
 }
 
